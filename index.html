@@ -1,211 +1,106 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Apollo Security | אפולו אבטחה</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Rubik', sans-serif;
       margin: 0;
+      font-family: 'Rubik', sans-serif;
       background-color: #0d1b3f;
       color: #ffffff;
       line-height: 1.6;
     }
-    header {
+    .hero {
+      position: relative;
       text-align: center;
-      padding: 2rem 1rem;
+      color: white;
     }
-    header img {
-      max-width: 140px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      color: #c9a94b;
-    }
-    nav {
-      background-color: #091633;
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: #f0d775;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-    .hero-image {
+    .hero img {
       width: 100%;
-      max-height: 500px;
+      height: 100vh;
       object-fit: cover;
-      display: block;
+      opacity: 0.7;
+      animation: fadeIn 2s ease-in-out;
     }
-    .content {
-      padding: 2rem 1rem;
-      max-width: 900px;
-      margin: auto;
+    .hero-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
     }
-    .section {
-      margin-bottom: 2rem;
+    .hero h1 {
+      font-size: 3rem;
+      margin: 0;
     }
-    .section h2 {
+    .hero p {
       font-size: 1.5rem;
       color: #f0d775;
-      margin-bottom: 1rem;
     }
-    .contact-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #25D366;
-      color: white;
-      padding: 0.75rem 1.5rem;
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 0.7;}
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -10px); }
+    }
+    .choice-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .choice-btn {
+      background: #f0d775;
+      color: #0d1b3f;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin: 1rem;
       border-radius: 30px;
-      text-decoration: none;
+      cursor: pointer;
       font-weight: bold;
       transition: background 0.3s ease;
     }
-    .contact-btn:hover {
-      background: #1ea64c;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    footer {
-      background: #091633;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-    .whatsapp-float a {
-      background: #25D366;
-      color: white;
-      padding: 0.75rem 1rem;
-      border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-      .section h2 {
-        font-size: 1.25rem;
-      }
-      .contact-btn {
-        display: block;
-        text-align: center;
-        width: 100%;
-      }
-      nav {
-        flex-wrap: wrap;
-        font-size: 0.9rem;
-      }
+    .choice-btn:hover {
+      background: #e5c85c;
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="https://files.catbox.moe/8z8yzf.png" alt="Apollo Security Logo">
-    <h1>אפולו אבטחה</h1>
-    <p>הסטנדרט הגבוה ביותר לביטחון וסדר באירועים</p>
-  </header>
-
-  <nav>
-    <a href="#services">שירותים</a>
-    <a href="#recruitment">הצטרפות לצוות</a>
-    <a href="#clients">לקוחות</a>
-    <a href="#values">היתרונות שלנו</a>
-    <a href="#gallery">תמונות</a>
-    <a href="#footer">אודות</a>
-  </nav>
-
-  <img src="https://files.catbox.moe/yudtvl.jpg" alt="Apollo Security Team" class="hero-image">
-
-  <div class="content">
-    <div id="services" class="section">
-      <h2>שירותי החברה</h2>
-      <p>
-        מתמחים באבטחה, סדרנות והכוונת קהל לאירועים רבי משתתפים – הופעות, משחקים, פסטיבלים ואתרים קבועים. צוותים מיומנים, הכשרות מוכרות, ונוכחות מרשימה בשטח.
-      </p>
+  <div class="hero">
+    <img src="ראשונה.JPG" alt="תמונה ראשית">
+    <div class="hero-text">
+      <h1>Apollo Security</h1>
+      <p>הסטנדרט הגבוה ביותר לביטחון וסדר באירועים</p>
     </div>
-
-    <div id="recruitment" class="section">
-      <h2>רוצה לעבוד איתנו?</h2>
-      <p>
-        אנחנו מגייסים דיילים/ות, סדרנים, מאבטחים – לעבודה באירועים מובילים. מתאים לצעירים עם אחריות, מחויבות ורצינות.
-      </p>
-      <a class="contact-btn" href="https://wa.me/972523918182" target="_blank">צור קשר עם אילן</a>
-    </div>
-
-    <div id="clients" class="section">
-      <h2>לקוחות נבחרים</h2>
-      <ul>
-        <li>פסטיבל הבירה ירושלים</li>
-        <li>ארנה ירושלים</li>
-        <li>בית\"ר ירושלים</li>
-        <li>פארק הירקון – גני יהושע</li>
-        <li>גן העצמאות</li>
-        <li>הפקות NEXT, GOLD, פתיחת חודש התיירות</li>
-      </ul>
-      <a class="contact-btn" href="https://wa.me/972522922618" target="_blank">צור קשר עם מאיר</a>
-    </div>
-
-    <div id="values" class="section">
-      <h2>היתרונות שלנו</h2>
-      <ul>
-        <li>צוות אורגני מגובש עם תחושת שליחות ובגרות תפקודית</li>
-        <li>כוח אדם איכותי, מקצועי ומיומן</li>
-        <li>עבודה מדויקת, מכבדת, קשובה וסמכותית</li>
-        <li>נוכחות ניהולית ודינמיקה תקשורתית בשטח</li>
-        <li>מבטיחים את השקט, הסדר והביטחון שלכם – באחריות</li>
-      </ul>
-    </div>
-
-    <div id="gallery" class="section">
-      <h2>מהשטח</h2>
-      <div class="gallery">
-        <img src="https://files.catbox.moe/yudtvl.jpg" alt="Briefing">
-        <img src="https://files.catbox.moe/buw5va.jpg" alt="Security in crowd">
-        <img src="https://files.catbox.moe/h9do8f.jpg" alt="Stage security">
-        <img src="https://files.catbox.moe/2aqopn.jpg" alt="Back of house">
-      </div>
-    </div>
+    <div class="scroll-down">⬇️</div>
   </div>
 
-  <div class="whatsapp-float">
-    <a href="https://wa.me/972523918182" target="_blank">צור קשר בוואצאפ</a>
-  </div>
-
-  <footer id="footer">
-    <p>© 2025 אפולו אבטחה | פועלים בהתאם להנחיות משטרת ישראל והפיקוח על חברות האבטחה.</p>
-    <p>הביטחון והסדר שלכם בעדיפות הראשונה</p>
-  </footer>
+  <section class="choice-section">
+    <h2>בחרו לאן להמשיך</h2>
+    <button class="choice-btn" onclick="location.href='clients.html'">
+      לקוחות – למידע על השירותים שלנו ולתיאום
+    </button>
+    <button class="choice-btn" onclick="location.href='workers.html'">
+      מצטרפים לצוות Apollo – פרטים למועמדים לעבודה
+    </button>
+  </section>
 </body>
 </html>
