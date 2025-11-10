@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apollo Security | אפולו אבטחה</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
-      margin: 0;
       font-family: 'Rubik', sans-serif;
+      margin: 0;
       background-color: #0d1b3f;
       color: #ffffff;
       line-height: 1.6;
@@ -19,7 +16,6 @@
     .hero {
       position: relative;
       text-align: center;
-      color: white;
     }
     .hero img {
       width: 100%;
@@ -33,74 +29,91 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 2;
+      text-align: center;
+      color: white;
     }
-    .hero h1 {
+    .hero-text h1 {
       font-size: 3rem;
       margin: 0;
     }
-    .hero p {
-      font-size: 1.5rem;
+    .hero-text p {
+      font-size: 1.2rem;
       color: #f0d775;
     }
-    .scroll-down {
+    .arrow {
       position: absolute;
-      bottom: 20px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 2rem;
       animation: bounce 2s infinite;
+      color: #f0d775;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
     }
     @keyframes fadeIn {
       from {opacity: 0;}
       to {opacity: 0.7;}
     }
-    @keyframes bounce {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, -10px); }
-    }
-    .choice-section {
+    nav {
+      background-color: #091633;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 3rem 1rem;
+      justify-content: center;
+      padding: 0.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
-    .choice-btn {
-      background: #f0d775;
-      color: #0d1b3f;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+    nav a {
+      color: #f0d775;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+    .section {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .contact-btn {
+      display: inline-block;
       margin: 1rem;
+      background: #25D366;
+      color: white;
+      padding: 0.75rem 1.5rem;
       border-radius: 30px;
-      cursor: pointer;
+      text-decoration: none;
       font-weight: bold;
       transition: background 0.3s ease;
     }
-    .choice-btn:hover {
-      background: #e5c85c;
+    .contact-btn:hover {
+      background: #1ea64c;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">דף הבית</a>
+    <a href="clients.html">ללקוחות</a>
+    <a href="workers.html">לעובדים</a>
+  </nav>
+
   <div class="hero">
-    <img src="ראשונה.JPG" alt="תמונה ראשית">
+    <img src="ראשונה.JPG" alt="Hero Image">
     <div class="hero-text">
       <h1>Apollo Security</h1>
       <p>הסטנדרט הגבוה ביותר לביטחון וסדר באירועים</p>
     </div>
-    <div class="scroll-down">⬇️</div>
+    <div class="arrow">
+      &#x25BC;
+    </div>
   </div>
 
-  <section class="choice-section">
-    <h2>בחרו לאן להמשיך</h2>
-    <button class="choice-btn" onclick="location.href='clients.html'">
-      לקוחות – למידע על השירותים שלנו ולתיאום
-    </button>
-    <button class="choice-btn" onclick="location.href='workers.html'">
-      מצטרפים לצוות Apollo – פרטים למועמדים לעבודה
-    </button>
-  </section>
+  <div class="section">
+    <a href="clients.html" class="contact-btn">ללקוחות חדשים ולמידע על השירות</a>
+    <br>
+    <a href="workers.html" class="contact-btn">מצטרפים לצוות Apollo</a>
+  </div>
 </body>
 </html>
